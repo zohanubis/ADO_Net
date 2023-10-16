@@ -159,6 +159,8 @@
     <Content Include="Views\Home\UpdateEmployee.cshtml" />
     <Content Include="Views\Home\EmployeeDetails.cshtml" />
     <Content Include="Views\Home\ShowDepartmentEmployee.cshtml" />
+    <Content Include="Views\Home\SideBarDept.cshtml" />
+    <Content Include="Views\Home\DepartmentEmployees.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

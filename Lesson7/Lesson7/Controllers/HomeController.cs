@@ -166,8 +166,16 @@ namespace Lesson7.Controllers
             
             return View(db.tbl_Employee.Include("tbl_Deparment"));
         }
-
-
-
+        // Sidebar
+        public ActionResult SideBarDept()
+        {
+            var departments = db.tbl_Deparment.ToList();
+            return View(departments);
+        }
+        public ActionResult DepartmentEmployees(int departmentId)
+        {
+            var employeesInDepartment = db.tbl_Employee.Where(e => e.DeptId == departmentId).ToList();
+            return View(employeesInDepartment);
+        }
     }
 }

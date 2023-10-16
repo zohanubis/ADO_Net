@@ -8,51 +8,62 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h4 class="mt-4">Chi Tiết Nhân Viên</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.Gender)
-            </dt>
-            <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.Gender)
-            </dd>
-
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
-            <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.City)
-            </dd>
-
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-            <dd class="col-sm-9">
-                <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width: 5%" />
-            </dd>
-
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.DeptId)
-            </dt>
-            <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.DeptId)
-            </dd>
-        </dl>
-    </div>
     <div class="container mt-4">
-        <p>
-            <a href="@Url.Action("UpdateEmployee", new { id = Model.Id })" class="btn btn-primary">Edit</a>
-            @Html.ActionLink("Back to List", "ShowEmployee", null, new { @class = "btn btn-secondary" })
-        </p>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="width: 100%" />
+            </div>
+            <div class="col-md-9">
+                <h4>Chi Tiết Nhân Viên</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        <p>Họ Tên :</p>
+                        @*@Html.DisplayNameFor(model => model.Name)*@
+                    </dt>
+                    <dd class="col-sm-9" style="color:red">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        <p>Giới Tính:</p>
+                        @*@Html.DisplayNameFor(model => model.Gender)*@
+                    </dt>
+                    <dd class="col-sm-9" style="color:red">
+                        @Html.DisplayFor(model => model.Gender)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        <p>Thành Phố</p>
+                        @*@Html.DisplayNameFor(model => model.City)*@
+                    </dt>
+                    <dd class="col-sm-9" style="color:red">
+                        @Html.DisplayFor(model => model.City)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        <p>Mã Phòng Ban:</p>
+                        @*@Html.DisplayNameFor(model => model.DeptId)*@
+                    </dt>
+                    <dd class="col-sm-9" style="color:red">
+                        @Html.DisplayFor(model => model.DeptId)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <p>Mã Nhân Viên:</p>
+                        @*@Html.DisplayNameFor(model => model.DeptId)*@
+                    </dt>
+                    <dd class="col-sm-9" style="color:red">
+                        @Html.DisplayFor(model => model.Id)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>
+                <a href="@Url.Action("UpdateEmployee", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+                @Html.ActionLink("Back to List", "ShowEmployee", null, new { @class = "btn btn-secondary" })
+            </p>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
