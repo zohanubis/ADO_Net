@@ -3,8 +3,7 @@
     "",
     "\\Lesson7",
     "\\Lesson7\\Lesson7",
-    "\\Lesson7\\Lesson7\\Controllers",
-    "\\Lesson7\\Lesson7\\Views\\Home"
+    "\\Lesson7\\Lesson7\\Controllers"
   ],
   "SelectedNode": "\\Lesson7\\Lesson7\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false

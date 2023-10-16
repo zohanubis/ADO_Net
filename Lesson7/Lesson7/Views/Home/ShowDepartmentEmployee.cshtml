@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Lesson7.Models.tbl_Employee>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowDepartmentEmployee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <p class="mt-4">
+            <a href="@Url.Action("CreateEmployee")" class="btn btn-primary">Thêm mới</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                    <th>@Html.DisplayNameFor(model => model.City)</th>
+                    <th>@Html.DisplayNameFor(model => model.Image)</th>
+                    <th>@Html.DisplayNameFor(model => model.DeptId)</th>
+                    <th>Department Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                    <td>@Html.DisplayFor(modelItem => item.City)</td>
+                    <td><img src="~/Images/@Html.DisplayFor(modelItem => item.Image)" style="width: 20px" /></td>
+                    <td>@Html.DisplayFor(modelItem => item.DeptId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.tbl_Deparment.Name)</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

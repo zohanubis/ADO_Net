@@ -161,5 +161,13 @@ namespace Lesson7.Controllers
 
             return View(employee);
         }
+        public ActionResult ShowDepartmentEmployee()
+        {
+            
+            return View(db.tbl_Employee.Include("tbl_Deparment"));
+        }
+
+
+
     }
 }
