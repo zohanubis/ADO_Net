@@ -3,15 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShowEmployee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowEmployeeDetails</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Bảng Nhân Viên</h1>
+    <div class="container mt-4">
         <p>
-            <a href="@Url.Action("CreateEmployee")" class="btn btn-primary">Create New</a>
+            <a href="@Url.Action("Thêm Mới", "CreateEmployee")" class="btn btn-primary">Create New</a>
         </p>
         <table class="table table-striped">
             <thead>
@@ -31,12 +30,12 @@
                         <td>@Html.DisplayFor(modelItem => item.Name)</td>
                         <td>@Html.DisplayFor(modelItem => item.Gender)</td>
                         <td>@Html.DisplayFor(modelItem => item.City)</td>
-                        <td><img src="~/Images/@Html.DisplayFor(modelItem => item.Image)" style="width: 5%" /></td>
+                        <td><img src="~/Images/@Html.DisplayFor(modelItem => item.Image)" style="width: 10%" /></td>
                         <td>@Html.DisplayFor(modelItem => item.DeptId)</td>
                         <td>
-                            <a href="@Url.Action("UpdateEmployee", new { id = item.Id })" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="@Url.Action("EmployeeDetails", new { id = item.Id })" class="btn btn-info btn-sm">Details</a>
-                            <a href="@Url.Action("DeleteEmployee", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="@Url.Action("Edit", "ControllerName", new { id = item.Id })" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="@Url.Action("Details", "ControllerName", new { id = item.Id })" class="btn btn-info btn-sm">Details</a>
+                            <a href="@Url.Action("Delete", "ControllerName", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                 }
@@ -44,7 +43,6 @@
         </table>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

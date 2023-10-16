@@ -1,0 +1,61 @@
+﻿@model Lesson7.Models.tbl_Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeDetails</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h4 class="mt-4">Chi Tiết Nhân Viên</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.DeptId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.DeptId)
+            </dd>
+        </dl>
+    </div>
+    <div class="container mt-4">
+        <p>
+            <a href="@Url.Action("UpdateEmployee", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+            @Html.ActionLink("Back to List", "ShowEmployee", null, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

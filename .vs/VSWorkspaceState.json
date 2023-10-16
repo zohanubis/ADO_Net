@@ -1,4 +1,11 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Lesson7",
+    "\\Lesson7\\Lesson7",
+    "\\Lesson7\\Lesson7\\Controllers",
+    "\\Lesson7\\Lesson7\\Views\\Home"
+  ],
+  "SelectedNode": "\\Lesson7\\Lesson7\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

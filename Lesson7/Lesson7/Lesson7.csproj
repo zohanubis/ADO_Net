@@ -95,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Images\NV1.JPG" />
+    <Content Include="Images\NV2.JPG" />
+    <Content Include="Images\NV3.JPG" />
     <Content Include="Models\QLNhanSuN.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLNhanSuN.edmx</DependentUpon>
@@ -149,7 +152,12 @@
     <Content Include="Views\Home\ShowDepartment.cshtml" />
     <Content Include="Views\Home\CreateDepartment.cshtml" />
     <Content Include="Views\Home\UpdateDepartment.cshtml" />
+    <Content Include="Views\Home\ShowEmployeeDetails.cshtml" />
+    <Content Include="Views\Home\CreateEmployee.cshtml" />
     <Content Include="Views\Home\ShowEmployee.cshtml" />
+    <Content Include="Views\Home\DeleteEmployee.cshtml" />
+    <Content Include="Views\Home\UpdateEmployee.cshtml" />
+    <Content Include="Views\Home\EmployeeDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

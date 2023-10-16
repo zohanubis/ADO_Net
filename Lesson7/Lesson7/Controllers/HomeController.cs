@@ -54,27 +54,112 @@ namespace Lesson7.Controllers
                 db.tbl_Deparment.Attach(dept);
                 db.Entry(dept).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("ShowDepartment","Home");
+                return RedirectToAction("ShowDepartment", "Home");
             }
 
             return View(dept);
         }
-        public ActionResult ShowEmployee(int id = 0)
+        public ActionResult ShowEmployee()
         {
+            return View(db.tbl_Employee.ToList());
+        }
+        //public ActionResult ShowEmployee(int id = 0)
+        //{
 
-            var department = db.tbl_Deparment.SingleOrDefault(d => d.DeptId == id);
+        //    var department = db.tbl_Deparment.SingleOrDefault(d => d.DeptId == id);
 
-            if (department == null)
+        //    if (department == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    var employees = db.tbl_Employee.Include("tbl_Deparment").Where(e => e.DeptId == id).ToList();
+
+        //    ViewBag.Department = employees;
+        //    ViewBag.EmployeeCount = employees.Count;
+        //    ViewBag.Employees = employees;
+        //    return View(department);
+        //}
+        public ActionResult ShowEmployeeDetails()
+        {
+            return View(db.tbl_Employee.ToList());
+        }
+        public ActionResult CreateEmployee()
+        {
+            ViewBag.DeptId = new SelectList(db.tbl_Deparment, "DeptId", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateEmployee(tbl_Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                db.tbl_Employee.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("ShowEmployee", "Home");
+            }
+            return View(employee);
+        }
+        public ActionResult DeleteEmployee(int id)
+        {
+            tbl_Employee employee = db.tbl_Employee.Single(d => d.Id == id);
+
+            if (employee == null)
             {
                 return HttpNotFound();
             }
 
-            var employees = db.tbl_Employee.Include("tbl_Deparment").Where(e => e.DeptId == id).ToList();
+            return View(employee);
+        }
+        [HttpPost, ActionName("DeleteEmployee")]
+        public ActionResult DeleteEmployeeComfirm(int id)
+        {
+            tbl_Employee employee = db.tbl_Employee.Single(d => d.Id == id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            db.Entry(employee).State = System.Data.EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction("ShowEmployee");
 
-            ViewBag.Department = employees;
-            ViewBag.EmployeeCount = employees.Count;
-            ViewBag.Employees = employees;
-            return View(department);
+        }
+        public ActionResult UpdateEmployee(int id = 0)
+        {
+            tbl_Employee employee = db.tbl_Employee.Single(d => d.Id == id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(employee);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateEmployee(tbl_Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                db.tbl_Employee.Attach(employee);
+                db.Entry(employee).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ShowEmployee", "Home");
+            }
+
+            return View(employee);
+        }
+        public ActionResult EmployeeDetails(int id)
+        {
+            tbl_Employee employee = db.tbl_Employee.SingleOrDefault(d => d.Id == id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(employee);
         }
     }
 }

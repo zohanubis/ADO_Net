@@ -1,0 +1,74 @@
+﻿@model Lesson7.Models.tbl_Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Employee</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(Model => Model.Gender)
+                @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>{
+               new SelectListItem{Text="Nam",Value="Nam"},
+               new SelectListItem{Text="Nữ",Value="Nữ"} }, "Chọn giới tính", new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Gender, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label" })
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model=>model.Image,new {type ="file"})
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.DeptId)
+                @Html.DropDownListFor(model => model.DeptId, new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Phòng ban 1", Value = "1" },
+                    new SelectListItem { Text = "Phòng ban 2", Value = "2" },
+                    new SelectListItem { Text = "Phòng ban 3", Value = "3" }
+                }, "Chọn phòng ban", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DeptId, "", new { @class = "text-danger" })
+            </div>*@
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "ShowEmployee")
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
