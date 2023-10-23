@@ -10,13 +10,13 @@ using Lesson9.Models;
 
 namespace Lesson9.Controllers
 {
-    public class HomeController : Controller
+    public class ChuDeController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        QLBSDataContext db = new QLBSDataContext();
+
+        public ActionResult ChuDePartial()
         {
-            return View();
+            return View(db.ChuDes.Take(7).ToList());
         }
-        
     }
 }

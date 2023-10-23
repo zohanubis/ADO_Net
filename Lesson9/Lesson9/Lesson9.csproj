@@ -177,7 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SachController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,9 +201,10 @@
       <DependentUpon>QLBS.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\LayoutView.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ChuDe\ChuDePartial.cshtml" />
+    <Content Include="Views\Sach\SachPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
