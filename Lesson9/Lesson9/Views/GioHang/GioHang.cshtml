@@ -6,6 +6,7 @@
 }
 @using Lesson9.Models;
 @model List<GioHang>
+
 <h2>GIỎ HÀNG CỦA BẠN</h2>
 <div class="card border-dark">
     <table class="table">
@@ -16,7 +17,7 @@
             <th>SỐ LƯỢNG</th>
             <th>ĐƠN GIÁ</th>
             <th>THÀNH TIỀN</th>
-
+            <th>Chi Tiết</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -40,6 +41,9 @@
                 <td width="12%">
                     @string.Format("{0:N0}", item.dThanhTien)
                 </td>
+                <td>
+                    <a href="@Url.Action("XemChiTiet", "Sach", new { ms = item.iMaSach })">Chi tiết</a>
+                </td>
             </tr>
 
         }
@@ -48,6 +52,7 @@
             <td style="color:red;font-weight:bold">@ViewBag.TongSoLuong</td>
             <td></td>
             <td style="color:red;font-weight:bold"> @string.Format("{0:N0}", @ViewBag.TongThanhTien) VND</td>
+            <td></td>
 
         </tr>
     </table>
