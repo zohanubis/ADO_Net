@@ -71,5 +71,34 @@ namespace Lesson9.Controllers
             }
             return ttt;
         }
+        public ActionResult XoaALLGioHang()
+        {
+            List<GioHang> lstGioHang = LayGioHang();
+            lstGioHang.Clear(); // Clear the shopping cart (remove all items)
+
+            // Optionally, you can add a message to indicate that the cart is cleared.
+            ViewBag.ClearMessage = "Your shopping cart is now empty";
+
+            // Redirect back to the shopping cart or any other page
+            return RedirectToAction("GioHang", "GioHang");
+        }
+
+        public ActionResult XoaGioHang(int MaSP)
+        {
+            List<GioHang> lstGioHang = LayGioHang();
+
+            GioHang sp = lstGioHang.Single(s => s.iMaSach == MaSP);
+
+            if(sp != null)
+            {
+                lstGioHang.RemoveAll(s => s.iMaSach == MaSP);
+                return RedirectToAction("GioHang", "GioHang");
+            }
+            if(lstGioHang.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("GioHang", "GioHang");
+        }
     }
 }
