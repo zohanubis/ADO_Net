@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Lesson9.Models.Sach>
+
+@{
+    ViewBag.Title = "SachTheoCD";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<h2>SachTheoCD</h2>
+@ViewBag.TB
+
+
+@foreach (var item in Model)
+{
+    <div class="col-4">
+        <img src="@Url.Content("~Content/HinhAnhSP/"+item.AnhBia)" width="70%" height="70%" alt="img" />
+        @if (item.TenSach.Length > 30)
+        {
+            <p>
+                <strong title="=" @item.TenSach> @item.TenSach.Substring(0, 30)... </strong> <br />
+                <a href="@Url.Action("XemChiTiet", new {@ms = item.MaSach})">Xem Chi Tiết</a>
+            </p>
+        }
+        else
+        {
+            <strong title="=" @item.TenSach> @item.TenSach </strong> <br />
+            <a href="@Url.Action("XemChiTiet", new {@ms = item.MaSach})">Xem Chi Tiết</a>
+        }
+    </div>
+
+}

@@ -1,0 +1,88 @@
+﻿@model Lesson9.Models.Sach
+
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+
+<h2>Chi Tiết Sản Phẩm</h2>
+
+<div class="card">
+    <div class="card-body">
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="~/Content/HinhAnhSP/@Html.DisplayFor(model => model.AnhBia)" />
+            </div>
+            <div class="col-sm-8">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        <p>Tên sách</p>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TenSach)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <p>Giá Bán</p>
+
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.GiaBan)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        <p>Mô tả</p>
+
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.MoTa)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.NgayCapNhat)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.NgayCapNhat)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.SoLuongTon)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.SoLuongTon)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.MaChuDe)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.MaChuDe)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.MaNXB)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.MaNXB)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Moi)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Moi)
+                    </dd>
+                </dl>
+            </div>
+            <a href="@Url.Action("ThemGioHang", "GioHang", new { @ms = Model.MaSach,@strURL = Request.Url.ToString() })">
+                <input type="submit" value="MUA NGAY " class="btn btn-primary" />
+            </a>
+            <a href="@Url.Action("SachPartial","Sach")">
+                <input type="submit" value="MUA TIẾP " class="btn btn-primary" />
+            </a>
+        </div>
+    </div>
+</div>
+

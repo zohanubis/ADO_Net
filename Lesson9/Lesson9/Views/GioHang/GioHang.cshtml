@@ -1,0 +1,56 @@
+﻿
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/LayoutView.cshtml";
+}
+@using Lesson9.Models;
+@model List<GioHang>
+<h2>GIỎ HÀNG CỦA BẠN</h2>
+<div class="card border-dark">
+    <table class="table">
+        <tr style="background-color:lightyellow">
+            <th>MÃ SÁCH</th>
+            <th>TÊN SÁCH</th>
+            <th>ẢNH BÌA</th>
+            <th>SỐ LƯỢNG</th>
+            <th>ĐƠN GIÁ</th>
+            <th>THÀNH TIỀN</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="12%">
+                    @item.iMaSach
+                </td>
+                <td width="26%">
+                    @item.sTenSach
+                </td>
+                <td width="22%">
+                    <img src="~/Content/HinhAnhSP/@item.sAnhBia" width="50%" />
+                </td>
+                <td width="12%">
+                    @item.iSoLuong
+                </td>
+                <td width="12%">
+                    @string.Format("{0:N0}", item.dDonGia)
+
+                </td>
+                <td width="12%">
+                    @string.Format("{0:N0}", item.dThanhTien)
+                </td>
+            </tr>
+
+        }
+        <tr style="background-color:lightyellow">
+            <td colspan="3" style="color:blue;font-weight:bold;text-align:right;">Tổng cộng</td>
+            <td style="color:red;font-weight:bold">@ViewBag.TongSoLuong</td>
+            <td></td>
+            <td style="color:red;font-weight:bold"> @string.Format("{0:N0}", @ViewBag.TongThanhTien) VND</td>
+
+        </tr>
+    </table>
+</div>
+
+

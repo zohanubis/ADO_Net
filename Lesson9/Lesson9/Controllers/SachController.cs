@@ -22,12 +22,25 @@ namespace Lesson9.Controllers
         public ActionResult SachPartial()
         {
             var listSach = db.Saches.OrderBy(s => s.TenSach).ToList();
-            return View(listSach);
+            return View("SachPartial", listSach);
         }
+
         public ActionResult XemChiTiet(int ms)
         {
-            return View(ms);
+            Sach sach = db.Saches.Single(s => s.MaSach == ms);
+            if(sach == null) { return HttpNotFound(); }
+            return View(sach);
         }
+        public ActionResult SachTheoCD(int MaCD)
+        {
+            var ListSach = db.Saches.Where(s => s.MaChuDe == MaCD).OrderBy(s => s.GiaBan).ToList();
+            if(ListSach.Count == 0)
+            {
+                ViewBag.TB = "Không có sách thuộc chủ đề này";
+            }
+            return View(ListSach);
+        }
+
     }
 
 }
