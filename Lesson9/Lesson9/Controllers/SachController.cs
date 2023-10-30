@@ -40,7 +40,15 @@ namespace Lesson9.Controllers
             }
             return View(ListSach);
         }
-
+        public ActionResult SachTheoNXB(int MaNXB)
+        {
+            var ListSach = db.Saches.Where(s => s.MaNXB == MaNXB).OrderBy(s => s.GiaBan).ToList();
+            if(ListSach.Count == 0)
+            {
+                ViewBag.TB = "Không có sách theo nhà xuất bản này";
+            }
+            return View(ListSach);
+        }
     }
 
 }

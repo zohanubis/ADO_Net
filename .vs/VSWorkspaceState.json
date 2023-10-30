@@ -5,8 +5,12 @@
     "\\Lesson7\\Lesson7",
     "\\Lesson7\\Lesson7\\Controllers",
     "\\Lesson7\\Lesson7\\Views",
-    "\\Lesson7\\Lesson7\\Views\\Home"
+    "\\Lesson7\\Lesson7\\Views\\Home",
+    "\\Lesson9",
+    "\\Lesson9\\Lesson9",
+    "\\Lesson9\\Lesson9\\Views",
+    "\\Lesson9\\Lesson9\\Views\\Sach"
   ],
-  "SelectedNode": "\\Lesson7\\Lesson7\\Views\\Home\\SideBarDept.cshtml",
+  "SelectedNode": "\\Lesson9\\Lesson9\\Views\\Sach\\SachPartial.cshtml",
   "PreviewInSolutionExplorer": false
 }

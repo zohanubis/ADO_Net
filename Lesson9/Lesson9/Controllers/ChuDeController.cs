@@ -18,5 +18,14 @@ namespace Lesson9.Controllers
         {
             return View(db.ChuDes.Take(7).ToList());
         }
+        public ActionResult SachTheoChuDe (int MaCD)
+        {
+            var SCD = db.Saches.Where(s => s.MaChuDe == MaCD).ToList();
+            if(SCD == null)
+            {
+                return HttpNotFound();  
+            }
+            return View(SCD);
+        }
     }
 }

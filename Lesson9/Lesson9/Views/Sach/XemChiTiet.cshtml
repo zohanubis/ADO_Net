@@ -20,59 +20,34 @@
                     <dt class="col-sm-4">
                         <p>Tên sách</p>
                     </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.TenSach)
+                    <dd class="col-sm-8" style="color:blue;">
+                        <b>@Html.DisplayFor(model => model.TenSach)</b>
                     </dd>
-
                     <dt class="col-sm-4">
-                        <p>Giá Bán</p>
-
+                        <p>Chủ Đề</p>
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.GiaBan)
+                        @Html.DisplayFor(model => model.ChuDe.TenChuDe)
                     </dd>
 
                     <dt class="col-sm-4">
-                        <p>Mô tả</p>
+                        <p>Nhà Xuất Bản</p>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <p>Nội dung tóm tắt</p>
 
                     </dt>
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.MoTa)
                     </dd>
-
                     <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.NgayCapNhat)
+                        <p>Giá Bán</p>
                     </dt>
                     <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.NgayCapNhat)
-                    </dd>
-
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.SoLuongTon)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.SoLuongTon)
-                    </dd>
-
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.MaChuDe)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.MaChuDe)
-                    </dd>
-
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.MaNXB)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.MaNXB)
-                    </dd>
-
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Moi)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Moi)
+                        <b style="color:red">@Html.DisplayFor(model => model.GiaBan)</b>
                     </dd>
                 </dl>
             </div>
