@@ -100,5 +100,18 @@ namespace Lesson9.Controllers
             }
             return RedirectToAction("GioHang", "GioHang");
         }
+        public ActionResult capNhatGioHang(int MaSp, FormCollection f)
+        {
+            //lấy giỏ hàng
+            List<GioHang> lstGioHang = LayGioHang();
+            //kiểm tra xem sách cần cập nhật có trong giá hàng không
+            GioHang sp = lstGioHang.Single(s=>s.iMaSach==MaSp);
+            //nếu có thì tiến hành cập nhật
+            if (sp != null)
+            {
+                sp.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
+            }
+            return RedirectToAction("GioHang", "GioHang");
+        }
     }
 }

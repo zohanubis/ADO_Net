@@ -33,9 +33,6 @@ namespace Lesson9.Models
     partial void InsertChiTietDonHang(ChiTietDonHang instance);
     partial void UpdateChiTietDonHang(ChiTietDonHang instance);
     partial void DeleteChiTietDonHang(ChiTietDonHang instance);
-    partial void InsertThamGia(ThamGia instance);
-    partial void UpdateThamGia(ThamGia instance);
-    partial void DeleteThamGia(ThamGia instance);
     partial void InsertChuDe(ChuDe instance);
     partial void UpdateChuDe(ChuDe instance);
     partial void DeleteChuDe(ChuDe instance);
@@ -54,10 +51,13 @@ namespace Lesson9.Models
     partial void InsertTacGia(TacGia instance);
     partial void UpdateTacGia(TacGia instance);
     partial void DeleteTacGia(TacGia instance);
+    partial void InsertThamGia(ThamGia instance);
+    partial void UpdateThamGia(ThamGia instance);
+    partial void DeleteThamGia(ThamGia instance);
     #endregion
 		
 		public QLBSDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyBanSachConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QuanLyBanSachConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -91,14 +91,6 @@ namespace Lesson9.Models
 			get
 			{
 				return this.GetTable<ChiTietDonHang>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ThamGia> ThamGias
-		{
-			get
-			{
-				return this.GetTable<ThamGia>();
 			}
 		}
 		
@@ -147,6 +139,14 @@ namespace Lesson9.Models
 			get
 			{
 				return this.GetTable<TacGia>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ThamGia> ThamGias
+		{
+			get
+			{
+				return this.GetTable<ThamGia>();
 			}
 		}
 	}
@@ -342,222 +342,6 @@ namespace Lesson9.Models
 						this._MaSach = default(int);
 					}
 					this.SendPropertyChanged("Sach");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ThamGia")]
-	public partial class ThamGia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaSach;
-		
-		private int _MaTacGia;
-		
-		private string _VaiTro;
-		
-		private string _ViTri;
-		
-		private EntityRef<Sach> _Sach;
-		
-		private EntityRef<TacGia> _TacGia;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaSachChanging(int value);
-    partial void OnMaSachChanged();
-    partial void OnMaTacGiaChanging(int value);
-    partial void OnMaTacGiaChanged();
-    partial void OnVaiTroChanging(string value);
-    partial void OnVaiTroChanged();
-    partial void OnViTriChanging(string value);
-    partial void OnViTriChanged();
-    #endregion
-		
-		public ThamGia()
-		{
-			this._Sach = default(EntityRef<Sach>);
-			this._TacGia = default(EntityRef<TacGia>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaSach
-		{
-			get
-			{
-				return this._MaSach;
-			}
-			set
-			{
-				if ((this._MaSach != value))
-				{
-					if (this._Sach.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaSachChanging(value);
-					this.SendPropertyChanging();
-					this._MaSach = value;
-					this.SendPropertyChanged("MaSach");
-					this.OnMaSachChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTacGia", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaTacGia
-		{
-			get
-			{
-				return this._MaTacGia;
-			}
-			set
-			{
-				if ((this._MaTacGia != value))
-				{
-					if (this._TacGia.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaTacGiaChanging(value);
-					this.SendPropertyChanging();
-					this._MaTacGia = value;
-					this.SendPropertyChanged("MaTacGia");
-					this.OnMaTacGiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VaiTro", DbType="NVarChar(50)")]
-		public string VaiTro
-		{
-			get
-			{
-				return this._VaiTro;
-			}
-			set
-			{
-				if ((this._VaiTro != value))
-				{
-					this.OnVaiTroChanging(value);
-					this.SendPropertyChanging();
-					this._VaiTro = value;
-					this.SendPropertyChanged("VaiTro");
-					this.OnVaiTroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViTri", DbType="NVarChar(50)")]
-		public string ViTri
-		{
-			get
-			{
-				return this._ViTri;
-			}
-			set
-			{
-				if ((this._ViTri != value))
-				{
-					this.OnViTriChanging(value);
-					this.SendPropertyChanging();
-					this._ViTri = value;
-					this.SendPropertyChanged("ViTri");
-					this.OnViTriChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sach_ThamGia", Storage="_Sach", ThisKey="MaSach", OtherKey="MaSach", IsForeignKey=true)]
-		public Sach Sach
-		{
-			get
-			{
-				return this._Sach.Entity;
-			}
-			set
-			{
-				Sach previousValue = this._Sach.Entity;
-				if (((previousValue != value) 
-							|| (this._Sach.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sach.Entity = null;
-						previousValue.ThamGias.Remove(this);
-					}
-					this._Sach.Entity = value;
-					if ((value != null))
-					{
-						value.ThamGias.Add(this);
-						this._MaSach = value.MaSach;
-					}
-					else
-					{
-						this._MaSach = default(int);
-					}
-					this.SendPropertyChanged("Sach");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_ThamGia", Storage="_TacGia", ThisKey="MaTacGia", OtherKey="MaTacGia", IsForeignKey=true)]
-		public TacGia TacGia
-		{
-			get
-			{
-				return this._TacGia.Entity;
-			}
-			set
-			{
-				TacGia previousValue = this._TacGia.Entity;
-				if (((previousValue != value) 
-							|| (this._TacGia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TacGia.Entity = null;
-						previousValue.ThamGias.Remove(this);
-					}
-					this._TacGia.Entity = value;
-					if ((value != null))
-					{
-						value.ThamGias.Add(this);
-						this._MaTacGia = value.MaTacGia;
-					}
-					else
-					{
-						this._MaTacGia = default(int);
-					}
-					this.SendPropertyChanged("TacGia");
 				}
 			}
 		}
@@ -1991,6 +1775,222 @@ namespace Lesson9.Models
 		{
 			this.SendPropertyChanging();
 			entity.TacGia = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ThamGia")]
+	public partial class ThamGia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaSach;
+		
+		private int _MaTacGia;
+		
+		private string _VaiTro;
+		
+		private string _ViTri;
+		
+		private EntityRef<Sach> _Sach;
+		
+		private EntityRef<TacGia> _TacGia;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaSachChanging(int value);
+    partial void OnMaSachChanged();
+    partial void OnMaTacGiaChanging(int value);
+    partial void OnMaTacGiaChanged();
+    partial void OnVaiTroChanging(string value);
+    partial void OnVaiTroChanged();
+    partial void OnViTriChanging(string value);
+    partial void OnViTriChanged();
+    #endregion
+		
+		public ThamGia()
+		{
+			this._Sach = default(EntityRef<Sach>);
+			this._TacGia = default(EntityRef<TacGia>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSach", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaSach
+		{
+			get
+			{
+				return this._MaSach;
+			}
+			set
+			{
+				if ((this._MaSach != value))
+				{
+					if (this._Sach.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaSachChanging(value);
+					this.SendPropertyChanging();
+					this._MaSach = value;
+					this.SendPropertyChanged("MaSach");
+					this.OnMaSachChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTacGia", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaTacGia
+		{
+			get
+			{
+				return this._MaTacGia;
+			}
+			set
+			{
+				if ((this._MaTacGia != value))
+				{
+					if (this._TacGia.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTacGiaChanging(value);
+					this.SendPropertyChanging();
+					this._MaTacGia = value;
+					this.SendPropertyChanged("MaTacGia");
+					this.OnMaTacGiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VaiTro", DbType="NVarChar(50)")]
+		public string VaiTro
+		{
+			get
+			{
+				return this._VaiTro;
+			}
+			set
+			{
+				if ((this._VaiTro != value))
+				{
+					this.OnVaiTroChanging(value);
+					this.SendPropertyChanging();
+					this._VaiTro = value;
+					this.SendPropertyChanged("VaiTro");
+					this.OnVaiTroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViTri", DbType="NVarChar(50)")]
+		public string ViTri
+		{
+			get
+			{
+				return this._ViTri;
+			}
+			set
+			{
+				if ((this._ViTri != value))
+				{
+					this.OnViTriChanging(value);
+					this.SendPropertyChanging();
+					this._ViTri = value;
+					this.SendPropertyChanged("ViTri");
+					this.OnViTriChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sach_ThamGia", Storage="_Sach", ThisKey="MaSach", OtherKey="MaSach", IsForeignKey=true)]
+		public Sach Sach
+		{
+			get
+			{
+				return this._Sach.Entity;
+			}
+			set
+			{
+				Sach previousValue = this._Sach.Entity;
+				if (((previousValue != value) 
+							|| (this._Sach.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sach.Entity = null;
+						previousValue.ThamGias.Remove(this);
+					}
+					this._Sach.Entity = value;
+					if ((value != null))
+					{
+						value.ThamGias.Add(this);
+						this._MaSach = value.MaSach;
+					}
+					else
+					{
+						this._MaSach = default(int);
+					}
+					this.SendPropertyChanged("Sach");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_ThamGia", Storage="_TacGia", ThisKey="MaTacGia", OtherKey="MaTacGia", IsForeignKey=true)]
+		public TacGia TacGia
+		{
+			get
+			{
+				return this._TacGia.Entity;
+			}
+			set
+			{
+				TacGia previousValue = this._TacGia.Entity;
+				if (((previousValue != value) 
+							|| (this._TacGia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TacGia.Entity = null;
+						previousValue.ThamGias.Remove(this);
+					}
+					this._TacGia.Entity = value;
+					if ((value != null))
+					{
+						value.ThamGias.Add(this);
+						this._MaTacGia = value.MaTacGia;
+					}
+					else
+					{
+						this._MaTacGia = default(int);
+					}
+					this.SendPropertyChanged("TacGia");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
